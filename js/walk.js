@@ -1,9 +1,9 @@
 (function() {
 
 	var myApp = angular.module('myApp', ['firebase']);
-
-	myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseObject, $http){
-
+	myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseObject, $http){ // Do we need http?
+		console.log('weeeeeeee');
+		
 		var ref = new Firebase('https://walkwithme343.firebaseio.com/');
 
 		var usersRef = ref.child("users");
@@ -16,10 +16,12 @@
 		var authData = $scope.authObj.$getAuth();
 		if (authData) {
 		  $scope.userID = authData.uid;
+		  console.log($scope.userID);
 		}
 
+		console.log(authData);
 
-	}
+	})
 
 
 })();
